@@ -1,0 +1,78 @@
+{
+  "planets": [
+    {
+      "id": 1,
+      "name": "Mercury",
+      "description": "The smallest planet in our solar system and nearest to the Sun, Mercury is only slightly larger than Earth's Moon",
+      "imageUrl": "https://solarsystem.nasa.gov/system/resources/detail_files/769_PIA16820.jpg",
+      "rotationPeriod": 1408,
+      "period": 0.24,
+      "ordinal": 1,
+      "originDate": "Invalid Date",
+      "fullName": "undefined undefined"
+    },
+    {
+      "id": 2,
+      "name": "Venus",
+      "description": "The second planet from the Sun and our closest planetary neighbor.",
+      "imageUrl": "https://solarsystem.nasa.gov/system/resources/detail_files/688_Venus.jpg",
+      "rotationPeriod": 5832,
+      "period": 0.62,
+      "ordinal": 2
+    },
+    {
+      "id": 3,
+      "name": "Earth",
+      "description": "Our home planet is the third planet from the Sun, and the only place we know of so far that’s inhabited by living things.",
+      "imageUrl": "https://solarsystem.nasa.gov/system/resources/detail_files/786_1-bluemarble_west.jpg",
+      "rotationPeriod": 23.93,
+      "period": 1,
+      "ordinal": 3
+    },
+    {
+      "id": 4,
+      "name": "Mars",
+      "description": "The fourth planet from the Sun, Mars is a dusty, cold, desert world with a very thin atmosphere.",
+      "imageUrl": "https://solarsystem.nasa.gov/system/resources/detail_files/683_6453_mars-globe-valles-marineris-enhanced-full2.jpg",
+      "rotationPeriod": 24.62,
+      "period": 1.88,
+      "ordinal": 4
+    },
+    {
+      "id": 5,
+      "name": "Jupiter",
+      "description": "The fifth planet from our Sun and is, by far, the largest planet in the solar system – more than twice as massive as all the other planets combined.",
+      "imageUrl": "https://solarsystem.nasa.gov/system/resources/detail_files/2486_stsci-h-p1936a_1800.jpg",
+      "rotationPeriod": 9.92,
+      "period": 11.86,
+      "ordinal": 5
+    },
+    {
+      "id": 6,
+      "name": "Saturn",
+      "description": "The sixth planet from the Sun and the second largest planet in our solar system.",
+      "imageUrl": "https://solarsystem.nasa.gov/system/resources/detail_files/16020_6020_IMG005020_ai_wm_display.jpg",
+      "rotationPeriod": 10.66,
+      "period": 29.46,
+      "ordinal": 6
+    },
+    {
+      "id": 7,
+      "name": "Uranus",
+      "description": "The seventh planet from the Sun with the third largest diameter in our solar system, Uranus is very cold and windy.",
+      "imageUrl": "https://solarsystem.nasa.gov/system/resources/detail_files/599_PIA18182.jpg",
+      "rotationPeriod": 17.24,
+      "period": 84.01,
+      "ordinal": 7
+    },
+    {
+      "id": 8,
+      "name": "Neptune",
+      "description": "Dark, cold and whipped by supersonic winds, ice giant Neptune is the eighth and most distant planet in our solar system.",
+      "imageUrl": "https://solarsystem.nasa.gov/system/resources/detail_files/611_PIA01492.jpg",
+      "rotationPeriod": 16.11,
+      "period": 164.79,
+      "ordinal": 8
+    }
+  ]
+}
