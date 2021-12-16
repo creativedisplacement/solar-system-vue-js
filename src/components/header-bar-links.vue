@@ -16,7 +16,7 @@
 export default {
   data() {
     return {
-      github: 'https://github.com/creativedisplacement/solar-system-vue-js',
+      github: "https://github.com/creativedisplacement/solar-system-vue-js",
     };
   },
 };

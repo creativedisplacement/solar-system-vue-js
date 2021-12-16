@@ -9,7 +9,7 @@
               <div class="card">
                 <div class="card-content">
                   <div class="content">
-                     <div class="image">
+                    <div class="image">
                       <img :src="planet.imageUrl" :alt="planet.name" />
                     </div>
                     <div :key="planet.name" class="name">
@@ -18,12 +18,13 @@
                     <div class="description">
                       <p>{{ planet.description }}</p>
                       <ul>
-                        <li>One day is: {{ planet.rotationPeriod }} earth hours</li>
+                        <li>
+                          One day is: {{ planet.rotationPeriod }} earth hours
+                        </li>
                         <li>One year is: {{ planet.period }} earth years</li>
                       </ul>
                     </div>
                   </div>
-                  
                 </div>
               </div>
             </li>
@@ -43,15 +44,15 @@
 </template>
 
 <script>
-import { mapActions, mapState } from 'vuex';
-import Modal from '@/components/modal';
+import { mapActions, mapState } from "vuex";
+import Modal from "@/components/modal";
 
 export default {
-  name: 'Planets',
+  name: "Planets",
   data() {
     return {
       planetToDelete: null,
-      message: '',
+      message: "",
       showModal: false,
     };
   },
@@ -62,7 +63,7 @@ export default {
     await this.loadPlanets();
   },
   methods: {
-    ...mapActions(['getPlanetsAction', 'deletePlanetAction']),
+    ...mapActions(["getPlanetsAction", "deletePlanetAction"]),
     askToDelete(planet) {
       this.planetToDelete = planet;
       this.showModal = true;
@@ -78,15 +79,14 @@ export default {
       await this.loadPlanets();
     },
     async loadPlanets() {
-      this.message = 'Loading planets, please wait...';
+      this.message = "Loading planets, please wait...";
       await this.getPlanetsAction();
-      this.message = '';
+      this.message = "";
     },
   },
   computed: {
-    ...mapState(['planets']),
+    ...mapState(["planets"]),
     modalMessage() {
-
       return `Would you like to delete ${this.planetToDelete.fullName} ?`;
     },
   },

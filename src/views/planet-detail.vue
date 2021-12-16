@@ -24,21 +24,41 @@
                 v-model="planet.description"
               />
               <div class="field">
-              <label class="label" for="imageUrl">Image URL</label>
-              <input class="input" type="url" name="imageUrl" v-model="planet.imageUrl" />
-            </div>
-             <div class="field">
-              <label class="label" for="dayLength">Day length</label>
-              <input class="input" type="number" name="dayLength" v-model="planet.rotationPeriod" />
-            </div>
-            <div class="field">
-              <label class="label" for="yearLength">Year length</label>
-              <input class="input" type="number" name="yearLength" v-model="planet.period" />
-            </div>
-            <div class="field">
-              <label class="label" for="ordinal">Order from The Sun</label>
-              <input class="input" type="number" name="ordinal" v-model="planet.ordinal" />
-            </div>
+                <label class="label" for="imageUrl">Image URL</label>
+                <input
+                  class="input"
+                  type="url"
+                  name="imageUrl"
+                  v-model="planet.imageUrl"
+                />
+              </div>
+              <div class="field">
+                <label class="label" for="dayLength">Day length</label>
+                <input
+                  class="input"
+                  type="number"
+                  name="dayLength"
+                  v-model="planet.rotationPeriod"
+                />
+              </div>
+              <div class="field">
+                <label class="label" for="yearLength">Year length</label>
+                <input
+                  class="input"
+                  type="number"
+                  name="yearLength"
+                  v-model="planet.period"
+                />
+              </div>
+              <div class="field">
+                <label class="label" for="ordinal">Order from The Sun</label>
+                <input
+                  class="input"
+                  type="number"
+                  name="ordinal"
+                  v-model="planet.ordinal"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -61,10 +81,10 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex';
+import { mapActions, mapGetters } from "vuex";
 
 export default {
-  name: 'PlanetDetail',
+  name: "PlanetDetail",
   props: {
     id: {
       type: Number,
@@ -80,36 +100,36 @@ export default {
     if (this.isAddMode) {
       this.planet = {
         id: undefined,
-        name: '',
-        description: '',
-        imageUrl: '',
-        dayLength: '',
-        yearLength: '',
-        ordinal: ''
+        name: "",
+        description: "",
+        imageUrl: "",
+        dayLength: "",
+        yearLength: "",
+        ordinal: "",
       };
     } else {
       this.planet = { ...this.getPlanetById(this.id) };
     }
   },
   computed: {
-    ...mapGetters(['getPlanetById']),
+    ...mapGetters(["getPlanetById"]),
     isAddMode() {
       return !this.id;
     },
     title() {
-      return `${this.isAddMode ? 'Add' : 'Edit'} Planet`;
+      return `${this.isAddMode ? "Add" : "Edit"} Planet`;
     },
   },
   methods: {
-    ...mapActions(['updatePlanetAction', 'addPlanetAction']),
+    ...mapActions(["updatePlanetAction", "addPlanetAction"]),
     cancelPlanet() {
-      this.$router.push({ name: 'planets' });
+      this.$router.push({ name: "planets" });
     },
     async savePlanet() {
       this.planet.id
         ? await this.updatePlanetAction(this.planet)
         : await this.addPlanetAction(this.planet);
-      this.$router.push({ name: 'planets' });
+      this.$router.push({ name: "planets" });
     },
   },
 };

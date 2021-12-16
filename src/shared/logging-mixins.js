@@ -1,6 +1,6 @@
-import { logger } from './';
+import { logger } from "./";
 
-const hookMessageSuffix = 'hook called (from mixin)';
+const hookMessageSuffix = "hook called (from mixin)";
 
 export const lifecycleHooks = {
   // Computeds
@@ -12,7 +12,7 @@ export const lifecycleHooks = {
   // LifeCycle Hooks
   created() {
     logger.info(`${this.componentName} created ${hookMessageSuffix}`);
-    logger.info('component data', this.$data);
+    logger.info("component data", this.$data);
   },
   mounted() {
     logger.info(`${this.componentName} mounted ${hookMessageSuffix}`);
@@ -32,8 +32,8 @@ export const planetWatchers = {
       immediate: true,
       deep: true,
       handler(newValue, oldValue) {
-        logger.info('old values', oldValue);
-        logger.info('new values', newValue);
+        logger.info("old values", oldValue);
+        logger.info("new values", newValue);
       },
     },
   },

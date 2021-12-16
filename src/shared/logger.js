@@ -1,6 +1,6 @@
-import { format } from 'date-fns';
+import { format } from "date-fns";
 
-import { displayTimeFormat } from './constants';
+import { displayTimeFormat } from "./constants";
 
 export const logger = {
   info(message, data) {

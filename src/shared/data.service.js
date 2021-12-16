@@ -1,17 +1,17 @@
-import * as axios from 'axios';
+import * as axios from "axios";
 
-import { format } from 'date-fns';
-import { inputDateFormat } from './constants';
+import { format } from "date-fns";
+import { inputDateFormat } from "./constants";
 
-import { API } from './config';
+import { API } from "./config";
 
-const getPlanets = async function() {
+const getPlanets = async function () {
   try {
     const response = await axios.get(`${API}/planets`);
 
     let data = parseList(response);
 
-    const planets = data.map(h => {
+    const planets = data.map((h) => {
       h.originDate = format(h.originDate, inputDateFormat);
       h.fullName = `${h.firstName} ${h.lastName}`;
       return h;
@@ -23,7 +23,7 @@ const getPlanets = async function() {
   }
 };
 
-const getPlanet = async function(id) {
+const getPlanet = async function (id) {
   try {
     const response = await axios.get(`${API}/planets/${id}`);
     let planet = parseItem(response, 200);
@@ -35,7 +35,7 @@ const getPlanet = async function(id) {
   }
 };
 
-const updatePlanet = async function(planet) {
+const updatePlanet = async function (planet) {
   try {
     const response = await axios.put(`${API}/planets/${planet.id}`, planet);
     const updatedPlanet = parseItem(response, 200);
@@ -46,7 +46,7 @@ const updatePlanet = async function(planet) {
   }
 };
 
-const addPlanet = async function(planet) {
+const addPlanet = async function (planet) {
   try {
     const response = await axios.post(`${API}/planets`, planet);
     const addedPlanet = parseItem(response, 201);
@@ -57,7 +57,7 @@ const addPlanet = async function(planet) {
   }
 };
 
-const deletePlanet = async function(planet) {
+const deletePlanet = async function (planet) {
   try {
     const response = await axios.delete(`${API}/planets/${planet.id}`);
     parseItem(response, 200);
@@ -68,11 +68,11 @@ const deletePlanet = async function(planet) {
   }
 };
 
-const parseList = response => {
+const parseList = (response) => {
   if (response.status !== 200) throw Error(response.message);
   if (!response.data) return [];
   let list = response.data;
-  if (typeof list !== 'object') {
+  if (typeof list !== "object") {
     list = [];
   }
   return list;
@@ -81,7 +81,7 @@ const parseList = response => {
 export const parseItem = (response, code) => {
   if (response.status !== code) throw Error(response.message);
   let item = response.data;
-  if (typeof item !== 'object') {
+  if (typeof item !== "object") {
     item = undefined;
   }
   return item;
@@ -92,5 +92,5 @@ export const dataService = {
   getPlanet,
   updatePlanet,
   addPlanet,
-  deletePlanet
+  deletePlanet,
 };

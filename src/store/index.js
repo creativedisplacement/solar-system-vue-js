@@ -1,18 +1,18 @@
-import Vue from 'vue';
-import Vuex from 'vuex';
+import Vue from "vue";
+import Vuex from "vuex";
 
-import { dataService } from '../shared';
+import { dataService } from "../shared";
 import {
   ADD_PLANET,
   DELETE_PLANET,
   GET_PLANETS,
-  UPDATE_PLANET
-} from './mutation-types';
+  UPDATE_PLANET,
+} from "./mutation-types";
 
 Vue.use(Vuex);
 
 const state = () => ({
-  planets: []
+  planets: [],
 });
 
 const mutations = {
@@ -20,7 +20,7 @@ const mutations = {
     state.planets.unshift(planet); // mutable addition
   },
   [UPDATE_PLANET](state, planet) {
-    const index = state.planets.findIndex(h => h.id === planet.id);
+    const index = state.planets.findIndex((h) => h.id === planet.id);
     state.planets.splice(index, 1, planet);
     state.planets = [...state.planets];
   },
@@ -28,8 +28,8 @@ const mutations = {
     state.planets = planets;
   },
   [DELETE_PLANET](state, planetId) {
-    state.planets = [...state.planets.filter(p => p.id !== planetId)];
-  }
+    state.planets = [...state.planets.filter((p) => p.id !== planetId)];
+  },
 };
 
 const actions = {
@@ -49,16 +49,16 @@ const actions = {
   async updatePlanetAction({ commit }, planet) {
     const updatedPlanet = await dataService.updatePlanet(planet);
     commit(UPDATE_PLANET, updatedPlanet);
-  }
+  },
 };
 
 const getters = {
   // parameterized getters are not cached. so this is just a convenience to get the state.
-  getPlanetById: state => id => state.planets.find(h => h.id === id)
+  getPlanetById: (state) => (id) => state.planets.find((h) => h.id === id),
 };
 
 export default new Vuex.Store({
-  strict: process.env.NODE_ENV !== 'production',
+  strict: process.env.NODE_ENV !== "production",
   state,
   mutations,
   actions,

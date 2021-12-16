@@ -16,11 +16,11 @@
 
 <script>
 export default {
-  name: 'Modal',
+  name: "Modal",
   props: {
     message: {
       type: String,
-      default: () => '',
+      default: () => "",
     },
     isOpen: {
       type: Boolean,
@@ -29,10 +29,10 @@ export default {
   },
   methods: {
     onNo() {
-      this.$emit('handleNo');
+      this.$emit("handleNo");
     },
     onYes() {
-      this.$emit('handleYes');
+      this.$emit("handleYes");
     },
   },
 };
